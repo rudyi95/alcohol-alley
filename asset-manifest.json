@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/my-shop/static/css/main.073c9b0a.css",
-    "main.js": "/my-shop/static/js/main.470bc24a.js",
-    "static/js/787.6521655c.chunk.js": "/my-shop/static/js/787.6521655c.chunk.js",
-    "static/media/logo.svg": "/my-shop/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/my-shop/index.html",
-    "main.073c9b0a.css.map": "/my-shop/static/css/main.073c9b0a.css.map",
-    "main.470bc24a.js.map": "/my-shop/static/js/main.470bc24a.js.map",
-    "787.6521655c.chunk.js.map": "/my-shop/static/js/787.6521655c.chunk.js.map"
+    "main.css": "/my-shop.github.io/static/css/main.073c9b0a.css",
+    "main.js": "/my-shop.github.io/static/js/main.a3cc48ac.js",
+    "static/js/787.6521655c.chunk.js": "/my-shop.github.io/static/js/787.6521655c.chunk.js",
+    "static/media/logo.svg": "/my-shop.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/my-shop.github.io/index.html",
+    "main.073c9b0a.css.map": "/my-shop.github.io/static/css/main.073c9b0a.css.map",
+    "main.a3cc48ac.js.map": "/my-shop.github.io/static/js/main.a3cc48ac.js.map",
+    "787.6521655c.chunk.js.map": "/my-shop.github.io/static/js/787.6521655c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.470bc24a.js"
+    "static/js/main.a3cc48ac.js"
   ]
 }
