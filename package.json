@@ -1,7 +1,7 @@
 {
   "name": "my-shop",
   "version": "0.1.0",
-  "homepage": "https://rudyi95.github.io/my-shop",
+  "homepage": "https://rudyi95.github.io/my-shop.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
