@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-shop.github.io/static/css/main.c7c58906.css",
-    "main.js": "/my-shop.github.io/static/js/main.bf6f57ba.js",
+    "main.js": "/my-shop.github.io/static/js/main.99df85c4.js",
     "static/js/787.6521655c.chunk.js": "/my-shop.github.io/static/js/787.6521655c.chunk.js",
     "static/media/mainImage.png": "/my-shop.github.io/static/media/mainImage.1d271f1df1a3721d08b4.png",
     "static/media/whiskey.png": "/my-shop.github.io/static/media/whiskey.14ec6c62e232e6744469.png",
@@ -21,11 +21,11 @@
     "index.html": "/my-shop.github.io/index.html",
     "static/media/likeIcon.svg": "/my-shop.github.io/static/media/likeIcon.9f3ace3b2f37a87c773cd3a8a5ccf6cf.svg",
     "main.c7c58906.css.map": "/my-shop.github.io/static/css/main.c7c58906.css.map",
-    "main.bf6f57ba.js.map": "/my-shop.github.io/static/js/main.bf6f57ba.js.map",
+    "main.99df85c4.js.map": "/my-shop.github.io/static/js/main.99df85c4.js.map",
     "787.6521655c.chunk.js.map": "/my-shop.github.io/static/js/787.6521655c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7c58906.css",
-    "static/js/main.bf6f57ba.js"
+    "static/js/main.99df85c4.js"
   ]
 }
