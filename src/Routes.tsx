@@ -20,8 +20,8 @@ const Routers: React.FC = () => {
   return (
     <div className="app">
       <Routes>
-        <Route path="/my-shop.github.io" element={<Layout />}>
-          <Route path="/my-shop.github.io" element={<Landing />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Landing />} />
 
           <Route path="products">
             <Route path=":category" element={<ProductsPage />}>
