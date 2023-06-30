@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     height: "100%",
-    minHeight: 656,
+    maxHeight: 300,
     background: "#030305",
   },
   leftMain: {
@@ -17,5 +17,12 @@ export const useStyles = makeStyles({
     width: 625,
     height: "auto",
   },
-  rightMain: {},
+  rightMain: {
+    width: "20%",
+
+    "& img": {
+      width: "auto",
+      height: "100%",
+    },
+  },
 });

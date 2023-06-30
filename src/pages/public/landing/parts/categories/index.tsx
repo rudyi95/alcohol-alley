@@ -44,7 +44,7 @@ export const CategoriesBlock: React.FC = () => {
             <Box
               component="button"
               key={index}
-              sx={{ position: "relative" }}
+              sx={{ position: "relative", border: "none", cursor: "pointer" }}
               onClick={() => navigate(`products/${item.title}`)}
             >
               <Typography className={classes.categoryItem}>{item.title}</Typography>

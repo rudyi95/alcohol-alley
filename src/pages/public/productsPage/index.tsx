@@ -12,13 +12,15 @@ import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { useStyles } from "./style";
 import { BreadCrumbs } from "src/components/breadCrumbs";
 import Details from "src/pages/private/details";
+import { CircularLoader } from "src/components/loader";
+import { DataRender } from "src/containers/dataView";
 
 const ProductsPage: React.FC = () => {
   const classes = useStyles();
   const { category, id } = useParams();
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const { items } = useAppSelector((state) => state.items);
+  const { items, loading } = useAppSelector((state) => state.items);
 
   useEffect(() => {
     dispatch(getItemsAll({ category }));
@@ -44,9 +46,13 @@ const ProductsPage: React.FC = () => {
       </Box>
 
       <Box className={classes.productsContainer}>
-        {items.data.map((item) => {
-          return <SimpleCard key={item._id} data={item} />;
-        })}
+        <DataRender
+          loading={loading}
+          isEmpty={!items.data.length}
+          children={items.data.map((item) => {
+            return <SimpleCard key={item._id} data={item} />;
+          })}
+        />
       </Box>
     </Container>
   );

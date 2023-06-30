@@ -21,7 +21,6 @@ import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { itemsCategory } from "src/utils/constants/select";
 
 import { useStyles } from "./style";
-import { arrToMap } from "src/utils/helpers/commonHelper";
 
 const getCategoryLabel = (value: string) => {
   const label = itemsCategory.find((item) => item.value === value)?.label;
@@ -49,8 +48,6 @@ const Upload: React.FC = () => {
       })
     );
   };
-  const test = arrToMap(data);
-  console.log(test);
 
   useEffect(() => {
     dispatch(getItemsAll({ page: pagination.page + 1, limit: pagination.items }));

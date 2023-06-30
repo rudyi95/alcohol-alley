@@ -3,7 +3,7 @@ import axios from "axios";
 import { handleParseQueries } from "./parseQueriesHelper";
 
 const BASE_CONNECTION = axios.create({
-  baseURL: "/api",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 export const apiWrapper = async <T>({

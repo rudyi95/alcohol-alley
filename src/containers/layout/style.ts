@@ -9,6 +9,7 @@ export const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
   },
   content: {
+    position: "relative",
     flex: "1 0 auto",
   },
 }));
