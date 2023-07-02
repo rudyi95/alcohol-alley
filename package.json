@@ -1,7 +1,7 @@
 {
   "name": "my-shop",
   "version": "0.1.0",
-  "homepage": "https://rudyi95.github.io/alcohol-alley",
+  "homepage": "https://rudyi95.github.io",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
