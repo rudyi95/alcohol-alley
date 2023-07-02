@@ -26,7 +26,7 @@ interface IProps {
 }
 
 export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
-  const { _id, name, /* image, */ price } = data;
+  const { _id, name, image, price } = data;
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
       <CardActionArea className={classes.content}>
         <CardMedia
           component="img"
-          src={/* image ||  */ NoImage}
+          src={image || NoImage}
           alt="card image"
           className={classes.image}
         />

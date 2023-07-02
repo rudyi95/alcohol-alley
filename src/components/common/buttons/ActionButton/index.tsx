@@ -6,7 +6,7 @@ import { useStyles } from "./style";
 
 interface IProps {
   className?: string;
-  onClick: Function;
+  onClick?: Function;
   disabled?: boolean;
   text: string;
   icon?: JSX.Element;

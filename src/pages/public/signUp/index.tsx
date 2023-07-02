@@ -38,8 +38,6 @@ const Login: React.FC = () => {
     },
   });
 
-  console.log(formik.values);
-
   return (
     <div className={classes.root}>
       <form onSubmit={formik.handleSubmit} className={classes.container}>

@@ -20,7 +20,7 @@ export const apiWrapper = async <T>({
       return await BASE_CONNECTION.get<T>(checkedUrl);
     case "post": {
       return await BASE_CONNECTION.post<T>(url, isFormData ? data : { ...data }, {
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": isFormData ? "multipart/form-data" : "application/json" },
       });
     }
     case "put": {

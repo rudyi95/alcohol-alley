@@ -13,15 +13,18 @@ import { itemsCategory } from "src/utils/constants/select";
 
 import { useStyles } from "./style";
 import { Box, SelectChangeEvent } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ProductsHeader: React.FC = () => {
   const classes = useStyles();
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const [openModal, setOpenModal] = useState(false);
   const [filter, setFilter] = useState("");
 
   const handleModal = () => {
-    setOpenModal(!openModal);
+    // setOpenModal(!openModal);
+    navigate('/admin/add-item')
   };
 
   const handleSelect = (e: SelectChangeEvent<string>) => {

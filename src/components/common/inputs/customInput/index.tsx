@@ -9,6 +9,7 @@ interface IProps {
   onChange: (e: BaseSyntheticEvent) => void;
   value?: string | number | boolean;
   label?: string
+  className?: string
 }
 
 export const CustomInput: React.FC<IProps> = ({ id, name, type = "text", ...props }) => {

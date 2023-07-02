@@ -7,6 +7,7 @@ import Login from "src/pages/public/signIn";
 import Register from "src/pages/public/signUp";
 import AdminDashboard from "src/pages/private/admin";
 import AdminItems from "src/pages/private/admin/items";
+import AdminAddItem from "src/pages/private/admin/addItem";
 import ProductsPage from "src/pages/public/productsPage";
 // import MainPage from "src/pages/public/mainPage";
 import Landing from "src/pages/public/landing";
@@ -37,6 +38,11 @@ const Routers: React.FC = () => {
           <Route
             path="admin/items"
             element={!!token ? <AdminItems /> : <Navigate to="/login" replace />}
+          />
+
+          <Route
+            path="admin/add-item"
+            element={!!token ? <AdminAddItem /> : <Navigate to="/login" replace />}
           />
 
           <Route path="*" element={<div style={{ padding: 20 }}>not found</div>} />
