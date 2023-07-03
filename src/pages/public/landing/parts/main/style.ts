@@ -1,6 +1,7 @@
+import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-around",
@@ -12,17 +13,30 @@ export const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
+    paddingLeft: 10,
   },
   logoIcon: {
     width: 625,
     height: "auto",
-  },
-  rightMain: {
-    width: "20%",
 
-    "& img": {
-      width: "auto",
-      height: "100%",
+    [theme.breakpoints.down("lg")]: {
+      width: 425,
+    },
+
+    [theme.breakpoints.down("md")]: {
+      width: 325,
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      width: 225,
     },
   },
-});
+  rightMain: {
+    width: 247,
+
+    "& img": {
+      width: "100%",
+      height: "auto",
+    },
+  },
+}));

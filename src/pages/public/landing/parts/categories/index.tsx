@@ -35,16 +35,14 @@ export const CategoriesBlock: React.FC = () => {
 
   return (
     <Container maxWidth="lg" className={classes.root}>
-      <Typography sx={{ fontSize: "64px", fontWeight: 500, textTransform: "uppercase" }}>
-        Category
-      </Typography>
+      <Typography className={classes.categoryTitle}>Category</Typography>
       <Box className={classes.categoryList}>
         {categories.map((item, index) => {
           return (
             <Box
               component="button"
               key={index}
-              sx={{ position: "relative", border: "none", cursor: "pointer" }}
+              className={classes.categoryContainer}
               onClick={() => navigate(`products/${item.title}`)}
             >
               <Typography className={classes.categoryItem}>{item.title}</Typography>

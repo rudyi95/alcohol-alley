@@ -7,7 +7,7 @@ declare interface Item {
   description: string;
   popular: boolean;
   count: number;
-  image: string;
+  image: any;
 }
 
 declare interface OrderItem {

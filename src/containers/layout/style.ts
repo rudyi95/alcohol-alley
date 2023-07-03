@@ -11,5 +11,6 @@ export const useStyles = makeStyles(() => ({
   content: {
     position: "relative",
     flex: "1 0 auto",
+    background: "#efefef",
   },
 }));

@@ -9,7 +9,7 @@ interface IProps {
   aspectRatio?: number
 }
 
-export const ImageCropper: React.FC<IProps> = ({ image, setCropper, aspectRatio = 16/9 }) => {
+export const ImageCropper: React.FC<IProps> = ({ image, setCropper, aspectRatio = 2/3 }) => {
   return (
     <Cropper
       style={{ height: 400, width: '100%' }}

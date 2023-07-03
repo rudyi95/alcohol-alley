@@ -2052,56 +2052,44 @@ export const DATA_FOR_MENU = [
 
 export const DRINK_CATEGORY: SelectData[] = [
   {
-    value: "Горілка",
-    title: "Горілка",
+    value: "vodka",
+    title: "Vodka",
   },
   {
-    value: "Джин",
-    title: "Джин",
+    value: "gin",
+    title: "Gin",
   },
   {
-    value: "Тонік",
-    title: "Тонік",
+    value: "tequila",
+    title: "Tequila",
   },
   {
-    value: "Текіла",
-    title: "Текіла",
+    value: "rum",
+    title: "Rum",
   },
   {
-    value: "Ром",
-    title: "Ром",
+    value: "brandy",
+    title: "Brandy",
   },
   {
-    value: "Бренді",
-    title: "Бренді",
+    value: "cognac",
+    title: "Cognac",
   },
   {
-    value: "Коньяк",
-    title: "Коньяк",
+    value: "liquor",
+    title: "Liquor",
   },
   {
-    value: "Лікери і Настоянки",
-    title: "Лікери і Настоянки",
+    value: "whiskey",
+    title: "Whiskey",
   },
   {
-    value: "Віскі",
-    title: "Віскі",
+    value: "beer",
+    title: "Beer",
   },
   {
-    value: "Вермути",
-    title: "Вермути",
-  },
-  {
-    value: "Шампанське",
-    title: "Шампанське",
-  },
-  {
-    value: "Ігристе вино",
-    title: "Ігристе вино",
-  },
-  {
-    value: "Вино",
-    title: "Вино",
+    value: "wine",
+    title: "Wine",
   },
 ];
 export const LOGIC_TYPE: SelectData[] = [

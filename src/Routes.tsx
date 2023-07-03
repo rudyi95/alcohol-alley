@@ -44,6 +44,12 @@ const Routers: React.FC = () => {
             path="admin/add-item"
             element={!!token ? <AdminAddItem /> : <Navigate to="/login" replace />}
           />
+          <Route
+            path="admin/edit-item"
+            element={!!token ? <AdminAddItem /> : <Navigate to="/login" replace />}
+          >
+            <Route path=":id" />
+          </Route>
 
           <Route path="*" element={<div style={{ padding: 20 }}>not found</div>} />
         </Route>

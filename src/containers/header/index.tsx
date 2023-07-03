@@ -21,7 +21,12 @@ export const Header: React.FC = () => {
     <Box>
       <AppBar position="static" color="inherit" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <CustomIcon id="/" type={IconType.logo} onClick={handleNavigate} />
+          <CustomIcon
+            id="/"
+            type={IconType.logo}
+            onClick={handleNavigate}
+            className={classes.logo}
+          />
           <Box className={classes.iconsGroup}>
             <CustomIcon type={IconType.like} />
             <CustomIcon type={IconType.basket} />

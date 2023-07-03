@@ -35,7 +35,7 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
       <CardActionArea className={classes.content}>
         <CardMedia
           component="img"
-          src={image || NoImage}
+          src={image?.url || NoImage}
           alt="card image"
           className={classes.image}
         />

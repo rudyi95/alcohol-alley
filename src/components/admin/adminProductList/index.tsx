@@ -12,7 +12,6 @@ import {
   Button,
 } from "@mui/material";
 
-import { EditItemModal } from "src/containers/modals";
 import { CustomPagination } from "src/components/pagination";
 
 import { deleteItem, getItemsAll } from "src/redux/services/itemsService";
@@ -21,6 +20,7 @@ import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { itemsCategory } from "src/utils/constants/select";
 
 import { useStyles } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const getCategoryLabel = (value: string) => {
   const label = itemsCategory.find((item) => item.value === value)?.label;
@@ -31,10 +31,9 @@ const getCategoryLabel = (value: string) => {
 const Upload: React.FC = () => {
   const classes = useStyles();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { items } = useAppSelector((state) => state.items);
   const { data, totalCount } = items;
-  const [value, setValue] = useState<Item>();
-  const [open, setOpen] = useState(false);
 
   const [pagination, setPagination] = useState({ page: 0, items: 10 });
 
@@ -74,9 +73,9 @@ const Upload: React.FC = () => {
               return (
                 <TableRow key={row._id}>
                   <TableCell component="th" scope="row">
-                    <Box sx={{ width: "100px", height: "100px" }}>
+                    <Box sx={{ width: "100px", height: "150px" }}>
                       <img
-                        src={row.image || "https://via.placeholder.com/255x143?text=No+Img"}
+                        src={row.image?.url || "https://via.placeholder.com/255x143?text=No+Img"}
                         alt=""
                         className={classes.image}
                       />
@@ -96,8 +95,7 @@ const Upload: React.FC = () => {
                     <Button
                       id={row._id}
                       onClick={() => {
-                        setValue(row);
-                        setOpen(true);
+                        navigate(`/admin/edit-item/${row._id}`);
                       }}
                     >
                       Edit
@@ -110,7 +108,6 @@ const Upload: React.FC = () => {
         </Table>
       </TableContainer>
       <CustomPagination totalCount={totalCount} pagination={pagination} onChange={setPagination} />
-      {!!value && <EditItemModal handleClose={() => setOpen(false)} open={open} item={value} />}
     </div>
   );
 };

@@ -12,17 +12,19 @@ export const Footer: React.FC = () => {
   return (
     <Box className={classes.root}>
       <Box className={classes.footerInner}>
-        <Box>
+        <Box className={classes.logoContainer}>
           <CustomIcon type={IconType.logo} />
         </Box>
-        <Box className={classes.column}>
-          <Typography>FAQ</Typography>
-          <Typography>Privacy Policy</Typography>
-          <Typography>Types of payment</Typography>
-        </Box>
-        <Box className={classes.column}>
-          <Typography>+45 567 893 705</Typography>
-          <Typography>123 Main Street Brooklyn, NY 12345 </Typography>
+        <Box className={classes.footerLinks}>
+          <Box className={classes.column}>
+            <Typography>FAQ</Typography>
+            <Typography>Privacy Policy</Typography>
+            <Typography>Types of payment</Typography>
+          </Box>
+          <Box className={classes.column}>
+            <Typography>+45 567 893 705</Typography>
+            <Typography>123 Main Street Brooklyn, NY 12345 </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

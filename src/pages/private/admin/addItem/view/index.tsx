@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { FormikValues } from "formik";
@@ -13,21 +13,33 @@ import { DropZone } from "src/containers/dropZone";
 import { UploadButton } from "src/components/common/buttons/UploadButton";
 import { ActionButton } from "src/components/common/buttons";
 import { ImageCropper } from "src/components/ImageCropper";
-import { useAppDispatch } from "src/utils/hooks/redux";
+import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { upload } from "src/redux/services/fileService";
+import { getItemById } from "src/redux/services/itemsService";
+import { CircularLoader } from "src/components/loader";
 
-const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
+interface IProps {
+  isEdit?: string;
+}
+
+const AddItemPageView: React.FC<FormikValues & IProps> = ({
+  values,
+  handleChange,
+  setFieldValue,
+  handleSubmit,
+  setValues,
+  isEdit,
+}) => {
   const classes = useStyles();
   const dispatch = useAppDispatch();
+  const { item, loading } = useAppSelector((state) => state.items);
 
   const [fileLoad, setFileLoad] = useState<any>();
   const [cropper, setCropper] = useState<Cropper>();
   const [image, setImage] = useState<string | undefined>(undefined);
   const [openModal, setOpenModal] = useState(false);
-  const [disabled, setDisabled] = useState(false);
 
   const handleSubmitCrop = async () => {
-    setDisabled(true);
     if (cropper) {
       const res: Response = await fetch(cropper.getCroppedCanvas().toDataURL(fileLoad?.type));
       const blob: Blob = await res.blob();
@@ -43,21 +55,13 @@ const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
           upload({
             data: { name: "image", formData },
             func: (data: any) => {
-              //   const img = {
-              //     path: data.originalName,
-              //     preview: getImageSrc(data),
-              //     name: data.name,
-              //     type: fileLoad.type,
-              //   };
-              //   props.setFieldValue("uploadData.images", [
-              //     ...props.values.uploadData.images,
-              //     { id: data.id },
-              //   ]);
-              //   props.setFieldValue("image.preview", [img]);
-              //   props.setFieldValue("image.list", [...props.values.image.list, img]);
-              //   setDisabled(false);
-              //   setOpenModal(false);
-              //   dispatch(fileSlice.actions.resetUpload());
+              setImage(undefined);
+              setOpenModal(false);
+              setFieldValue("image", {
+                _id: data.data._id,
+                name: data.data.name,
+                url: data.data.url,
+              });
             },
           })
         );
@@ -86,6 +90,32 @@ const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
     },
     [values]
   );
+
+  useEffect(() => {
+    if (item.name) {
+      setValues({
+        _id: item._id,
+        name: item.name,
+        category: item.category,
+        price: item.price,
+        volume: item.volume,
+        description: item.description,
+        popular: item.popular,
+        count: item.count,
+        image: item.image,
+      });
+    }
+  }, [item]);
+
+  useEffect(() => {
+    if (isEdit) {
+      dispatch(getItemById(isEdit));
+    }
+  }, [isEdit]);
+
+  if (loading) {
+    return <CircularLoader />;
+  }
 
   return (
     <Box className={classes.root}>
@@ -160,17 +190,13 @@ const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
             </Box>
           </Box>
         </Box>
-        <img src="/images/63e7e5098b8d9e86176e09de8db8125c" />
         <Box sx={{ width: "400px", height: "500px" }}>
           <DropZone
-            name="image"
-            accept="image"
             title="Select an image or drag and drop here"
             subtitle="PNG, JPG, file size no more than 10MB"
             btnText="Select an image"
             onChange={handleImage}
-            files={values.imagePreview}
-            onlyShow={!!values.imagePreview.length}
+            image={values.image}
           />
           <Modal open={openModal} onClose={handleCloseModal} className={classes.cropModal}>
             <Box className={classes.cropModalContainer}>
@@ -186,26 +212,14 @@ const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
               </Box>
 
               <Box className={classes.cropButtonContainer}>
-                <ActionButton
-                  text="Cancel"
-                  variant="text"
-                  size="SM"
-                  onClick={handleCloseModal}
-                  disabled={disabled}
-                />
+                <ActionButton text="Cancel" variant="text" size="SM" onClick={handleCloseModal} />
                 <Box className={classes.cropButtonGroup}>
-                  <UploadButton
-                    text="Replace image"
-                    callBack={handleChange}
-                    variant="text"
-                    disabled={disabled}
-                  />
+                  <UploadButton text="Replace image" callBack={handleChange} variant="text" />
                   <ActionButton
                     text="Crop"
                     variant="contained"
                     size="SM"
                     onClick={handleSubmitCrop}
-                    disabled={disabled}
                   />
                 </Box>
               </Box>
@@ -213,7 +227,12 @@ const AddItemPageView: React.FC<FormikValues> = ({ values, handleChange }) => {
           </Modal>
         </Box>
       </Box>
-      <Button variant="outlined" color="primary" type="submit" sx={{ margin: "20px" }}>
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={() => handleSubmit()}
+        sx={{ margin: "20px" }}
+      >
         Add
       </Button>
     </Box>

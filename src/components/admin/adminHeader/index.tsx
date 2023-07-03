@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { CustomSelect } from "src/components/CustomSelect";
 import { ActionButton } from "src/components/common/buttons";
 
-import { AddItemModal } from "src/containers/modals";
-
 import { getItemsAll } from "src/redux/services/itemsService";
 import { itemsSlice } from "src/redux/newReducers/items";
 
@@ -17,14 +15,12 @@ import { useNavigate } from "react-router-dom";
 
 const ProductsHeader: React.FC = () => {
   const classes = useStyles();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [openModal, setOpenModal] = useState(false);
   const [filter, setFilter] = useState("");
 
   const handleModal = () => {
-    // setOpenModal(!openModal);
-    navigate('/admin/add-item')
+    navigate("/admin/add-item");
   };
 
   const handleSelect = (e: SelectChangeEvent<string>) => {
@@ -32,7 +28,9 @@ const ProductsHeader: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(getItemsAll({ category: filter || undefined }));
+    if (!!filter) {
+      dispatch(getItemsAll({ category: filter || undefined }));
+    }
 
     return () => {
       dispatch(itemsSlice.actions.resetState());
@@ -53,7 +51,6 @@ const ProductsHeader: React.FC = () => {
           variant="outlined"
         />
       </Box>
-      {openModal && <AddItemModal open={openModal} handleClose={handleModal} />}
     </Box>
   );
 };
