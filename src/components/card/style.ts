@@ -7,11 +7,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
     // border: "1px black solid",
     border: "none",
   },
-  image: {
+  imageContainer: {
     width: "100%",
-    height: "auto",
-    // maxWidth: 100,
-    // margin: "auto",
+    height: 300,
+  },
+  image: {
+    height: "100%",
+    objectFit: "contain",
   },
   content: {
     height: "100%",

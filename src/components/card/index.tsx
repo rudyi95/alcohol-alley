@@ -33,12 +33,14 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
   return (
     <Card variant="outlined" className={classnames(classes.root, className)}>
       <CardActionArea className={classes.content}>
-        <CardMedia
-          component="img"
-          src={image?.url || NoImage}
-          alt="card image"
-          className={classes.image}
-        />
+        <Box className={classes.imageContainer}>
+          <CardMedia
+            component="img"
+            src={image?.url || NoImage}
+            alt="card image"
+            className={classes.image}
+          />
+        </Box>
 
         <CardContent
           sx={{
