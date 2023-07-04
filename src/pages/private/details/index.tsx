@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect/* , useState */ } from "react";
+import React, { useEffect /* , useState */ } from "react";
 import { useParams } from "react-router";
 // import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Box, CircularProgress, Container, /* TextField, */ Typography } from "@mui/material";
@@ -19,6 +19,13 @@ import { split, upperFirst } from "lodash";
 import { useLocation } from "react-router-dom";
 import CustomIcon from "src/components/customIcon";
 import { IconType } from "src/types/enums";
+import { DRINK_CATEGORY } from "src/utils/constants/constants";
+
+const getCategoryLabel = (value: string) => {
+  const label = DRINK_CATEGORY.find((item) => item.value === value)?.label;
+
+  return label || "";
+};
 
 const Details: React.FC = () => {
   const classes = useStyles();
@@ -56,7 +63,7 @@ const Details: React.FC = () => {
       />
       <Box className={classes.mainInfo}>
         <Box className={classes.image}>
-          <img src={NoImage} />
+          <img src={item.image?.url || NoImage} />
         </Box>
         <Box className={classes.details}>
           <Box className={classes.mainDetails}>
@@ -73,7 +80,7 @@ const Details: React.FC = () => {
               </Box>
               <Box className={classes.detailRow}>
                 <Typography>category:</Typography>
-                <Typography>${item.category}</Typography>
+                <Typography>{getCategoryLabel(item.category)}</Typography>
               </Box>
             </Box>
           </Box>

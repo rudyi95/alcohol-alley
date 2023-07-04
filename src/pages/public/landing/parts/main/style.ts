@@ -6,7 +6,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-around",
     height: "100%",
-    maxHeight: 300,
     background: "#030305",
   },
   leftMain: {

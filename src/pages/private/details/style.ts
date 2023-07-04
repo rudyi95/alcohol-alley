@@ -12,7 +12,6 @@ export const useStyles = makeStyles(() => ({
     columnGap: 71,
   },
   image: {
-    minWidth: 400,
     width: 400,
     height: 511,
 

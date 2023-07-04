@@ -17,13 +17,13 @@ import { CustomPagination } from "src/components/pagination";
 import { deleteItem, getItemsAll } from "src/redux/services/itemsService";
 
 import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
-import { itemsCategory } from "src/utils/constants/select";
 
 import { useStyles } from "./style";
 import { useNavigate } from "react-router-dom";
+import { DRINK_CATEGORY } from "src/utils/constants/constants";
 
 const getCategoryLabel = (value: string) => {
-  const label = itemsCategory.find((item) => item.value === value)?.label;
+  const label = DRINK_CATEGORY.find((item) => item.value === value)?.label;
 
   return label || "";
 };

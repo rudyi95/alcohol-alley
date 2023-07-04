@@ -10,7 +10,7 @@ import { useStyles } from "./style";
 
 interface IProps {
   firstItem?: SelectItem;
-  items: SelectItem[];
+  items: SelectData[];
   value?: string;
   label?: string;
   name?: string;

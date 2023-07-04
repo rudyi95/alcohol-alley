@@ -61,7 +61,7 @@ declare interface ArrayResponse<T> {
 
 declare interface SelectData {
   value: string | number;
-  title: string | number | React.ReactNode;
+  label: string | number | React.ReactNode;
 }
 
 declare type TModalType = "edit";

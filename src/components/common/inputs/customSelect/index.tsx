@@ -18,7 +18,7 @@ export const CustomSelect: React.FC<IProps & SelectProps> = ({
       <Select label={label} {...props}>
         {data.map((item, index) => (
           <MenuItem key={index} value={item.value}>
-            {item.title}
+            {item.label}
           </MenuItem>
         ))}
       </Select>

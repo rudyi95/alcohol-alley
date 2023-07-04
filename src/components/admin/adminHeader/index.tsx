@@ -7,11 +7,11 @@ import { getItemsAll } from "src/redux/services/itemsService";
 import { itemsSlice } from "src/redux/newReducers/items";
 
 import { useAppDispatch } from "src/utils/hooks/redux";
-import { itemsCategory } from "src/utils/constants/select";
 
 import { useStyles } from "./style";
 import { Box, SelectChangeEvent } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { DRINK_CATEGORY } from "src/utils/constants/constants";
 
 const ProductsHeader: React.FC = () => {
   const classes = useStyles();
@@ -42,7 +42,7 @@ const ProductsHeader: React.FC = () => {
       <Box className={classes.actions}>
         <ActionButton onClick={handleModal} text={"Add item:"} />
         <CustomSelect
-          items={itemsCategory}
+          items={DRINK_CATEGORY}
           label="Category"
           name="category"
           value={filter}

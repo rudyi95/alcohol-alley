@@ -1,30 +1,4 @@
 export const SAMPLE_PRODUCTS = [
-  //                  ----------------Тонік----------------
-  //  Noel
-  {
-    id: 4,
-    name: "Noel Original",
-    category: "Тонік",
-    price: 12.5,
-    volume: 0.2,
-    description: "",
-
-    popular: false,
-    imageUrls: ["https://i1.rozetka.ua/goods/2030579/noel_4820137823916_images_2030579832._S.jpg"],
-  },
-  {
-    id: 13,
-    name: "Noel Ginger flavor",
-    category: "Тонік",
-    price: 12.5,
-    volume: 0.2,
-    description: "",
-    popular: false,
-    imageUrls: [
-      "https://winewine.com.ua/wp-content/uploads/2020/07/tonik-noel-ginger-02l-mahazyn-sklad-wine-wine.png",
-    ],
-  },
-
   //                  ----------------Джин-----------------
   // Gordon's
   {
@@ -2053,52 +2027,52 @@ export const DATA_FOR_MENU = [
 export const DRINK_CATEGORY: SelectData[] = [
   {
     value: "vodka",
-    title: "Vodka",
+    label: "Vodka",
   },
   {
     value: "gin",
-    title: "Gin",
+    label: "Gin",
   },
   {
     value: "tequila",
-    title: "Tequila",
+    label: "Tequila",
   },
   {
     value: "rum",
-    title: "Rum",
+    label: "Rum",
   },
   {
     value: "brandy",
-    title: "Brandy",
+    label: "Brandy",
   },
   {
     value: "cognac",
-    title: "Cognac",
+    label: "Cognac",
   },
   {
     value: "liquor",
-    title: "Liquor",
+    label: "Liquor",
   },
   {
     value: "whiskey",
-    title: "Whiskey",
+    label: "Whiskey",
   },
   {
     value: "beer",
-    title: "Beer",
+    label: "Beer",
   },
   {
     value: "wine",
-    title: "Wine",
+    label: "Wine",
   },
 ];
 export const LOGIC_TYPE: SelectData[] = [
   {
     value: "false",
-    title: "False",
+    label: "False",
   },
   {
     value: "true",
-    title: "True",
+    label: "True",
   },
 ];
