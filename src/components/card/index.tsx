@@ -42,44 +42,47 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
           />
         </Box>
 
-        <CardContent
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            rowGap: "10px",
-            padding: "15px 0",
-            textAlign: "start",
-          }}
-        >
-          <Typography variant="h7" className={classes.title}>
-            {name}
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "center", columnGap: "8px" }}>
-            <Typography variant="h5">$ {price}</Typography>
-          </Box>
-        </CardContent>
-
-        <CardActions
-          sx={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <ActionButton
-            className={classes.detailsBtn}
-            onClick={() => navigate(_id)}
-            text={"Details"}
-          />
-          <CustomIcon
-            type={IconType.basket}
-            onClick={(e) => {
-              console.log(e);
+        <Box sx={{ width: "100%" }}>
+          <CardContent
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              rowGap: "10px",
+              padding: "15px",
+              textAlign: "start",
             }}
-          />
-        </CardActions>
+          >
+            <Typography variant="h7" className={classes.title}>
+              {name}
+            </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", columnGap: "8px" }}>
+              <Typography variant="h5">$ {price}</Typography>
+            </Box>
+          </CardContent>
+        </Box>
+
+        <Box sx={{ width: '100%' }}>
+          <CardActions
+            sx={{
+              padding: "15px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <ActionButton
+              className={classes.detailsBtn}
+              onClick={() => navigate(_id)}
+              text={"Details"}
+            />
+            <CustomIcon
+              type={IconType.basket}
+              onClick={(e) => {
+                console.log(e);
+              }}
+            />
+          </CardActions>
+        </Box>
       </CardActionArea>
     </Card>
   );

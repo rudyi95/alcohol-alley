@@ -5,11 +5,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     // height: 290,
     // border: "1px black solid",
+    width: 270,
     border: "none",
   },
   imageContainer: {
     width: "100%",
     height: 300,
+
+    [theme.breakpoints.down("sm")]: {
+      height: 200,
+    },
   },
   image: {
     height: "100%",

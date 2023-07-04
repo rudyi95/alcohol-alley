@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles({
   root: {
     textAlign: "center",
-    padding: 48,
+    padding: 45,
   },
   header: {
     display: "flex",
@@ -14,8 +14,8 @@ export const useStyles = makeStyles({
     columnGap: "10px",
   },
   productsContainer: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    display: "flex",
+    flexWrap: 'wrap',
     gap: 10,
   },
 });
