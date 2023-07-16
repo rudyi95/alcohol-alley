@@ -16,14 +16,14 @@ export const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: props.maxWidth,
 
     "& span": {
-      color: theme.palette.textSecondary2.main,
+      // color: theme.palette.textSecondary2.main,
     },
 
     "& .Mui-error": {
-      color: theme.palette.error[800],
+      // color: theme.palette.error[800],
     },
     "& .MuiFormHelperText-root": {
-      color: theme.palette.error[800],
+      // color: theme.palette.error[800],
     },
   }),
   textField: {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
     "& > div": {
       borderRadius: 8,
-      backgroundColor: theme.palette.grey[100],
+      // backgroundColor: theme.palette.grey[100],
       color: "inherit",
 
       "& input": {
@@ -40,13 +40,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
 
     "& fieldset": {
-      borderColor: theme.palette.grey[300],
+      // borderColor: theme.palette.grey[300],
     },
     "& .Mui-error fieldset": {
-      borderColor: `${theme.palette.error[800]} !important`,
+      // borderColor: `${theme.palette.error[800]} !important`,
     },
     "& .MuiFormHelperText-root.Mui-error": {
-      color: theme.palette.error[800],
+      // color: theme.palette.error[800],
     },
 
     "& input::-ms-reveal, input::-ms-clear": {

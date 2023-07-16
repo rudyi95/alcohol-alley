@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 
 import { Header } from "src/containers/header";
 import { Footer } from "src/containers/footer";
-import SnackBar from "src/components/snackBar";
+import { SnackbarComponent } from "../logicComponents";
 
 import { useStyles } from "./style";
 
@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
 
   return (
     <Box className={classes.root}>
-      <SnackBar />
+      <SnackbarComponent />
       <Header />
 
       <Box className={classes.content}>
