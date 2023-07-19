@@ -1,3 +1,3 @@
-import { SnackbarComponent } from "./snackbar";
+import { CardComponent } from "./card";
 
-export { SnackbarComponent };
+export { CardComponent };

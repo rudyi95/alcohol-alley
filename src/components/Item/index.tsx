@@ -4,13 +4,12 @@ import { CardActionArea, CardContent, CardMedia, Card, Badge } from "@mui/materi
 import first from "lodash/first";
 import isArray from "lodash/isArray";
 
-import ActionButton from "../common/buttons/ActionButton";
-
 import { addToOrder } from "src/redux/services/orderService";
 
 import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 
 import { useStyles } from "./style";
+import { Button } from "src/shared/ui/button";
 // import Rating from '../common/rating';
 
 interface ItemProps {
@@ -36,7 +35,7 @@ const ItemCard: React.FC<ItemProps> = ({ item }) => {
           <div className={classes.info}>
             <div className={classes.infoContent}>{/* <Rating /> */}</div>
             <div className={classes.infoActions}>
-              <ActionButton onClick={() => navigate("/details/" + item._id)} text={"Деталі"} />
+              <Button onClick={() => navigate("/details/" + item._id)} text={"Деталі"} />
               <div
                 style={{
                   display: "flex",
@@ -47,7 +46,7 @@ const ItemCard: React.FC<ItemProps> = ({ item }) => {
               >
                 {isArray(item.price) ? first(item.price) : item.price}₴
               </div>
-              <ActionButton
+              <Button
                 text={"У кошик"}
                 onClick={(e: any) => {
                   dispatch(addToOrder(items, { ...item, quantity: 1 }));

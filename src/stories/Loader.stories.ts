@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CircularLoader } from "src/components/loader";
+import { Loader } from "src/shared/ui";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Example/Loader",
-  component: CircularLoader,
+  component: Loader,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof CircularLoader>;
+} satisfies Meta<typeof Loader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

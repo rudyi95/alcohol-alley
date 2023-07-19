@@ -1,7 +1,6 @@
 import React from "react";
 
-import { CircularLoader } from "src/components/loader";
-import { CustomPlug } from "src/components/plug";
+import { Loader, Plug } from "src/shared/ui";
 
 interface IProps {
   loading: boolean;
@@ -10,11 +9,5 @@ interface IProps {
   children: React.ReactNode;
 }
 export const DataRender: React.FC<IProps> = ({ loading, isEmpty, plug, children }) => {
-  return loading ? (
-    <CircularLoader />
-  ) : isEmpty ? (
-    <CustomPlug text={plug || "No data"} />
-  ) : (
-    <>{children}</>
-  );
+  return loading ? <Loader /> : isEmpty ? <Plug text={plug || "No data"} /> : <>{children}</>;
 };

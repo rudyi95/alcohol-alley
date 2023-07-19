@@ -1,22 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState } from "react";
 
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { FormikValues } from "formik";
 
-import { CustomInput, CustomSelect } from "src/components/common/inputs";
-
-import { DRINK_CATEGORY, LOGIC_TYPE } from "src/utils/constants/constants";
-
-import { useStyles } from "./style";
 import { DropZone } from "src/containers/dropZone";
 import { UploadButton } from "src/components/common/buttons/UploadButton";
-import { ActionButton } from "src/components/common/buttons";
 import { ImageCropper } from "src/components/ImageCropper";
+import { Button, Input, Loader, TextArea } from "src/shared/ui";
+import { SelectForm } from "src/features";
+
 import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
+
+import { DRINK_CATEGORY, LOGIC_TYPE } from "src/utils/constants/constants";
 import { upload } from "src/redux/services/fileService";
 import { getItemById } from "src/redux/services/itemsService";
-import { CircularLoader } from "src/components/loader";
+
+import { useStyles } from "./style";
 
 interface IProps {
   isEdit?: string;
@@ -114,7 +114,7 @@ const AddItemPageView: React.FC<FormikValues & IProps> = ({
   }, [isEdit]);
 
   if (loading) {
-    return <CircularLoader />;
+    return <Loader />;
   }
 
   return (
@@ -130,16 +130,18 @@ const AddItemPageView: React.FC<FormikValues & IProps> = ({
               maxWidth: "400px",
             }}
           >
-            <CustomInput name="name" label="Name" onChange={handleChange} value={values.name} />
-            <CustomInput
+            <Input name="name" label="Name" onChange={handleChange} value={values.name} size="LG" />
+            <TextArea
               name="description"
-              label="Description"
+              placeholder="Description"
               onChange={handleChange}
               value={values.description}
+              minRows={8}
+              maxRows={8}
             />
           </Box>
           <Box sx={{ maxWidth: "320px", display: "flex", flexDirection: "column", rowGap: "20px" }}>
-            <CustomSelect
+            <SelectForm
               name="category"
               label="Category"
               value={values.category}
@@ -154,31 +156,31 @@ const AddItemPageView: React.FC<FormikValues & IProps> = ({
                 rowGap: "20px",
               }}
             >
-              <CustomInput
+              <Input
                 name="price"
                 type="number"
                 label="Price"
                 onChange={handleChange}
                 value={values.price}
-                className={classes.itemOption}
+                size="SM"
               />
-              <CustomInput
+              <Input
                 name="count"
                 type="number"
                 label="Count"
                 onChange={handleChange}
                 value={values.count}
-                className={classes.itemOption}
+                size="SM"
               />
-              <CustomInput
+              <Input
                 name="volume"
                 type="number"
                 label="Volume"
                 onChange={handleChange}
                 value={values.volume}
-                className={classes.itemOption}
+                size="SM"
               />
-              <CustomSelect
+              <SelectForm
                 name="popular"
                 label="Popular"
                 value={values.popular}
@@ -212,15 +214,10 @@ const AddItemPageView: React.FC<FormikValues & IProps> = ({
               </Box>
 
               <Box className={classes.cropButtonContainer}>
-                <ActionButton text="Cancel" variant="text" size="SM" onClick={handleCloseModal} />
+                <Button text="Cancel" size="MD" onClick={handleCloseModal} />
                 <Box className={classes.cropButtonGroup}>
                   <UploadButton text="Replace image" callBack={handleChange} variant="text" />
-                  <ActionButton
-                    text="Crop"
-                    variant="contained"
-                    size="SM"
-                    onClick={handleSubmitCrop}
-                  />
+                  <Button text="Crop" variant="contained" size="SM" onClick={handleSubmitCrop} />
                 </Box>
               </Box>
             </Box>
@@ -231,10 +228,9 @@ const AddItemPageView: React.FC<FormikValues & IProps> = ({
         variant="outlined"
         color="primary"
         onClick={() => handleSubmit()}
-        sx={{ margin: "20px" }}
-      >
-        Add
-      </Button>
+        text="Add"
+        size="MD"
+      />
     </Box>
   );
 };

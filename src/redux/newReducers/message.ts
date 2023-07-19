@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export const initialState = {
-  type: "error" as "error" | "info" | "success" | "warning",
-  text: "" as string,
+  type: "error" as TSnackbarType,
+  text: "",
   open: false,
 };
 
@@ -12,8 +12,6 @@ export const messageSlice = createSlice({
   reducers: {
     resetValue: (state) => {
       state.open = initialState.open;
-      state.text = initialState.text;
-      state.type = initialState.type;
     },
     setError: (state, action: PayloadAction<ErrorHandler>) => {
       state.type = "error";

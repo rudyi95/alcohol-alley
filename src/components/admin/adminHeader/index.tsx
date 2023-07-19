@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { CustomSelect } from "src/components/CustomSelect";
-import { ActionButton } from "src/components/common/buttons";
+import { Box, SelectChangeEvent } from "@mui/material";
+
+import { Button } from "src/shared/ui";
+import { SelectForm } from "src/features";
+
+import { DRINK_CATEGORY } from "src/utils/constants/constants";
+import { useAppDispatch } from "src/utils/hooks/redux";
 
 import { getItemsAll } from "src/redux/services/itemsService";
 import { itemsSlice } from "src/redux/newReducers/items";
 
-import { useAppDispatch } from "src/utils/hooks/redux";
-
 import { useStyles } from "./style";
-import { Box, SelectChangeEvent } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { DRINK_CATEGORY } from "src/utils/constants/constants";
 
 const ProductsHeader: React.FC = () => {
   const classes = useStyles();
@@ -40,9 +41,9 @@ const ProductsHeader: React.FC = () => {
   return (
     <Box className={classes.root}>
       <Box className={classes.actions}>
-        <ActionButton onClick={handleModal} text={"Add item:"} />
-        <CustomSelect
-          items={DRINK_CATEGORY}
+        <Button onClick={handleModal} text="Add item:" size="MD" noWrap />
+        <SelectForm
+          data={DRINK_CATEGORY}
           label="Category"
           name="category"
           value={filter}

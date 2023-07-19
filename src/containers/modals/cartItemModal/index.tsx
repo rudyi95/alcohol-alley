@@ -14,13 +14,14 @@ import {
 import { Phone as PhoneIcon } from "@mui/icons-material";
 
 import { ActionModal } from "src/components/modal";
-import { IconButton, ActionButton } from "src/components/common/buttons";
+import { IconButton } from "src/components/common/buttons";
 
 import { useAppSelector } from "src/utils/hooks/redux";
 import { ButtonIconType } from "src/types/enums";
 
 import { useStyles } from "./style";
 import { NavLink } from "react-router-dom";
+import { Button } from "src/shared/ui/button";
 
 interface IProps {
   open: boolean;
@@ -74,7 +75,7 @@ export const CartItemModal: React.FC<IProps> = ({ open, handleClose }) => {
           </Table>
         </TableContainer>
         <div className={classes.btnGroup}>
-          <ActionButton
+          <Button
             onClick={() => {}}
             text={"Замовити"}
             icon={<PhoneIcon style={{ marginRight: 15 }} />}
@@ -83,7 +84,7 @@ export const CartItemModal: React.FC<IProps> = ({ open, handleClose }) => {
             disabled={totalPrice === 0}
             href="tel: +380632112003"
           />
-          <ActionButton
+          <Button
             onClick={() => {
               handleClose();
               // dispatch(setCheckedOutItems(items));

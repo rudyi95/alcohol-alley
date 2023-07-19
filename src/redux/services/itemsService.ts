@@ -46,17 +46,20 @@ export const getItemById = createAsyncThunk("items/getItemById", async (id: stri
   }
 });
 
-export const getItemsByCategory = createAsyncThunk("items/getItemsByCategory", async (category: string, thunkApi) => {
-  try {
-    const res = await api.getItemsByCategory(category);
+export const getItemsByCategory = createAsyncThunk(
+  "items/getItemsByCategory",
+  async (category: string, thunkApi) => {
+    try {
+      const res = await api.getItemsByCategory(category);
 
-    return res?.data;
-  } catch (e) {
-    return thunkApi.rejectWithValue(
-      thunkApi.dispatch(messageSlice.actions.setError(e as ErrorHandler))
-    );
+      return res?.data;
+    } catch (e) {
+      return thunkApi.rejectWithValue(
+        thunkApi.dispatch(messageSlice.actions.setError(e as ErrorHandler))
+      );
+    }
   }
-});
+);
 
 export const postItem = createAsyncThunk(
   "items/postItem",

@@ -4,7 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { Box, Container, Typography } from "@mui/material";
 import { upperFirst } from "lodash";
 
-import { SimpleCard } from "src/components/card";
+import { CardComponent } from "src/containers/logicComponents";
 import { getItemsAll } from "src/redux/services/itemsService";
 
 import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
@@ -12,7 +12,6 @@ import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { useStyles } from "./style";
 import { BreadCrumbs } from "src/components/breadCrumbs";
 import Details from "src/pages/private/details";
-import { CircularLoader } from "src/components/loader";
 import { DataRender } from "src/containers/dataView";
 
 const ProductsPage: React.FC = () => {
@@ -50,7 +49,7 @@ const ProductsPage: React.FC = () => {
           loading={loading}
           isEmpty={!items.data.length}
           children={items.data.map((item) => {
-            return <SimpleCard key={item._id} data={item} />;
+            return <CardComponent key={item._id} data={item} />;
           })}
         />
       </Box>

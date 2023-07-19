@@ -3,9 +3,8 @@ import { Outlet } from "react-router-dom";
 
 import { Box } from "@mui/material";
 
-import { Header } from "src/containers/header";
-import { Footer } from "src/containers/footer";
-import { SnackbarComponent } from "../logicComponents";
+import { Header, Footer } from "src/widgets";
+import { Snackbar } from "src/entities";
 
 import { useStyles } from "./style";
 
@@ -14,7 +13,7 @@ export const Layout: React.FC = () => {
 
   return (
     <Box className={classes.root}>
-      <SnackbarComponent />
+      <Snackbar />
       <Header />
 
       <Box className={classes.content}>

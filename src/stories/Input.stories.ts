@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CustomInput } from "src/components/CustomInput";
+import { Input } from "src/shared/ui";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Example/Input",
-  component: CustomInput,
+  component: Input,
   tags: ["autodocs"],
-  argTypes: {},
-} satisfies Meta<typeof CustomInput>;
+  argTypes: {
+    size: { control: "radio", options: ["SM", "MD", "LG"] },
+  },
+} satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,6 +18,8 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    label: "Input"
+    label: "Input",
+    size: "MD",
+    variant: "filled",
   },
 };

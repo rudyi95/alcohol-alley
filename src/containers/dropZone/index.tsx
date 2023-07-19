@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { BaseSyntheticEvent, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-import { Box, LinearProgress, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import classNames from "classnames";
-import { split } from "lodash";
 
-import { ActionButton } from "src/components/common/buttons";
-import CustomIcon from "src/components/customIcon";
+import { Icon, Button } from "src/shared/ui";
 
 import { IconType } from "src/types/enums";
 
@@ -98,12 +96,12 @@ export const DropZone: React.FC<IProps> = ({
         <Box className={classes.normalContainer}>
           {!image.url && (
             <Box className={classes.textContainer}>
-              <CustomIcon type={IconType.basket} />
+              <Icon type={IconType.basket} />
               <Box className={classes.textGroup}>
                 <Typography variant="h8">{title}</Typography>
                 <Typography variant="labels">{subtitle}</Typography>
               </Box>
-              <ActionButton text={btnText} size="MD" ref={buttonEl} />
+              <Button text={btnText} size="MD" ref={buttonEl} />
             </Box>
           )}
           {!!image.url && (

@@ -70,3 +70,5 @@ declare interface SelectItem {
   value: string | number;
   label: string | number;
 }
+
+declare type TSizes = "SM" | "MD" | "LG";

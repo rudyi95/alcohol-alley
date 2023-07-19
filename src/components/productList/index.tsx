@@ -1,7 +1,7 @@
 import React from "react";
 
 // import Item from "../Item";
-import { SimpleCard } from "../card";
+import { CardComponent } from "src/containers/logicComponents";
 
 import { useAppSelector } from "src/utils/hooks/redux";
 
@@ -14,7 +14,7 @@ const ProductList: React.FC = () => {
   return (
     <div className={classes.root}>
       {items.data.map((item: Item) => {
-        return <SimpleCard key={item._id} data={item} />;
+        return <CardComponent key={item._id} data={item} />;
       })}
     </div>
   );

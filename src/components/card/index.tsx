@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import {
   Card,
@@ -12,23 +11,23 @@ import {
 } from "@mui/material";
 import classnames from "classnames";
 
+import { Icon, Button } from "src/shared/ui";
+
 import NoImage from "src/assets/No-Image-Placeholder.png";
 
-import ActionButton from "../common/buttons/ActionButton";
+import { IconType } from "src/types/enums";
 
 import { useStyles } from "./style";
-import CustomIcon from "../customIcon";
-import { IconType } from "src/types/enums";
 
 interface IProps {
   className?: string;
   data: Pick<Item, "_id" | "name" | "image" | "price">;
+  navigate: (e: string) => void;
 }
 
-export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
+export const SimpleCard: React.FC<IProps> = ({ data, className, navigate }) => {
   const { _id, name, image, price } = data;
   const classes = useStyles();
-  const navigate = useNavigate();
 
   return (
     <Card variant="outlined" className={classnames(classes.root, className)}>
@@ -61,7 +60,7 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
           </CardContent>
         </Box>
 
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: "100%" }}>
           <CardActions
             sx={{
               padding: "15px",
@@ -70,12 +69,8 @@ export const SimpleCard: React.FC<IProps> = ({ data, className }) => {
               justifyContent: "space-between",
             }}
           >
-            <ActionButton
-              className={classes.detailsBtn}
-              onClick={() => navigate(_id)}
-              text={"Details"}
-            />
-            <CustomIcon
+            <Button onClick={() => navigate(_id)} text={"Details"} />
+            <Icon
               type={IconType.basket}
               onClick={(e) => {
                 console.log(e);

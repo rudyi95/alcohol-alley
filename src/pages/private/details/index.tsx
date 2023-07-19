@@ -1,10 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect /* , useState */ } from "react";
 import { useParams } from "react-router";
-// import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { Box, CircularProgress, Container, /* TextField, */ Typography } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
-import ActionButton from "src/components/common/buttons/ActionButton";
+import { Box, CircularProgress, Container, /* TextField, */ Typography } from "@mui/material";
+import { split, upperFirst } from "lodash";
+
+import { BreadCrumbs } from "src/components/breadCrumbs";
+import { Icon, Button } from "src/shared/ui";
+
+import { DRINK_CATEGORY } from "src/utils/constants/constants";
 
 import { getItemById } from "src/redux/services/itemsService";
 import { itemsSlice } from "src/redux/newReducers/items";
@@ -12,14 +17,9 @@ import { itemsSlice } from "src/redux/newReducers/items";
 import NoImage from "src/assets/No-Image-Placeholder.png";
 
 import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
+import { IconType } from "src/types/enums";
 
 import { useStyles } from "./style";
-import { BreadCrumbs } from "src/components/breadCrumbs";
-import { split, upperFirst } from "lodash";
-import { useLocation } from "react-router-dom";
-import CustomIcon from "src/components/customIcon";
-import { IconType } from "src/types/enums";
-import { DRINK_CATEGORY } from "src/utils/constants/constants";
 
 const getCategoryLabel = (value: string) => {
   const label = DRINK_CATEGORY.find((item) => item.value === value)?.label;
@@ -96,11 +96,11 @@ const Details: React.FC = () => {
               <Typography>qty:</Typography>
               <Box>- 1 +</Box>
             </Box>
-            <ActionButton
+            <Button
               className={classes.addBtn}
-              onClick={() => {}}
               text={"Add to card "}
-              icon={<CustomIcon type={IconType.basket} />}
+              icon={<Icon type={IconType.basket} />}
+              size="LG"
             />
           </Box>
         </Box>

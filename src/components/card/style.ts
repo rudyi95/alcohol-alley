@@ -12,9 +12,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     height: 300,
 
-    [theme.breakpoints.down("sm")]: {
-      height: 200,
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   height: 200,
+    // },
   },
   image: {
     height: "100%",
@@ -68,10 +68,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
       padding: 0,
       height: "fit-content",
     },
-  },
-  detailsBtn: {
-    padding: "5px 20px",
-    borderRadius: 10,
-    background: "#DB422E",
   },
 }));

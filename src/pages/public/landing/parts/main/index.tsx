@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Box/* , Button */ } from "@mui/material";
+import { Box } from "@mui/material";
 
-import CustomIcon from "src/components/customIcon";
+import { Icon } from "src/shared/ui";
 
 import MainImage from "src/assets/landing/mainImage.png";
 
@@ -16,7 +16,7 @@ export const MainBlock: React.FC = () => {
   return (
     <Box className={classes.root}>
       <Box className={classes.leftMain}>
-        <CustomIcon type={IconType.logo} fill="#FFF" className={classes.logoIcon} />
+        <Icon type={IconType.logo} fill="#FFF" className={classes.logoIcon} />
       </Box>
       <Box className={classes.rightMain}>
         <img src={MainImage} alt="main landing" />

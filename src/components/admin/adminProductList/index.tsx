@@ -9,7 +9,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Button,
 } from "@mui/material";
 
 import { CustomPagination } from "src/components/pagination";
@@ -21,6 +20,7 @@ import { useAppDispatch, useAppSelector } from "src/utils/hooks/redux";
 import { useStyles } from "./style";
 import { useNavigate } from "react-router-dom";
 import { DRINK_CATEGORY } from "src/utils/constants/constants";
+import { Button } from "src/shared/ui/button";
 
 const getCategoryLabel = (value: string) => {
   const label = DRINK_CATEGORY.find((item) => item.value === value)?.label;
@@ -87,9 +87,7 @@ const Upload: React.FC = () => {
                   <TableCell align="right">{row.popular ? "Акція" : ""}</TableCell>
                   <TableCell align="right">{row.price}</TableCell>
                   <TableCell align="right">
-                    <Button id={row._id} onClick={handleDelete}>
-                      Delete
-                    </Button>
+                    <Button id={row._id} onClick={handleDelete} text="Delete" />
                   </TableCell>
                   <TableCell align="right">
                     <Button
@@ -97,9 +95,8 @@ const Upload: React.FC = () => {
                       onClick={() => {
                         navigate(`/admin/edit-item/${row._id}`);
                       }}
-                    >
-                      Edit
-                    </Button>
+                      text="Edit"
+                    />
                   </TableCell>
                 </TableRow>
               );

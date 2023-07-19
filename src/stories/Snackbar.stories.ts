@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Snackbar from "src/components/snackBar";
+import { SnackBarComp } from "src/shared/ui";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Example/Snackbar",
-  component: Snackbar,
+  component: SnackBarComp,
   tags: ["autodocs"],
   argTypes: {
     type: { control: "radio", options: ["error", "info", "success", "warning"] },
   },
-} satisfies Meta<typeof Snackbar>;
+} satisfies Meta<typeof SnackBarComp>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
